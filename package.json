@@ -1,0 +1,35 @@
+{
+  "name": "douban-trailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon -w server --exec \"npx babel-node server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felix-Zh/douban-trailer.git"
+  },
+  "keywords": [
+    "trailer",
+    "movie",
+    "douban"
+  ],
+  "author": "Felix",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Felix-Zh/douban-trailer/issues"
+  },
+  "homepage": "https://github.com/Felix-Zh/douban-trailer#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "koa": "^2.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.0"
+  }
+}
