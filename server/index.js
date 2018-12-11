@@ -1,12 +1,14 @@
 import Koa from 'koa';
+import useMiddlewares from './middlewares';
 import { port } from '../config';
-import { normal } from './templates';
+
 
 const app = new Koa();
 
+useMiddlewares(app);
+
 app.use(async (ctx, next) => {
-  ctx.type = 'text/html; charset=utf-8';
-  ctx.body = normal;
+  ctx.render('index', { userName: 'Felix' });
 });
 
 app.listen(port, () => {
