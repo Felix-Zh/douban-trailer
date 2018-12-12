@@ -1,0 +1,117 @@
+.navbar {
+  background: var(--blue);
+}
+
+.navbar h1 {
+  margin-bottom: 0;
+  font-size: 20px;
+  color: #fff;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.navbar .nav-item > a {
+  position: relative;
+  color: #fff;
+}
+
+.navbar .nav-item > a::after {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all .2s cubic-bezier(.175, .885, .32, 1.275);
+}
+
+.navbar .nav-item > a:hover::after {
+  width: 20%;
+  opacity: .4;
+}
+
+.navbar .nav-item > a.active::after {
+  width: 20%;
+  opacity: .8;
+}
+
+.content {
+  margin-top: 40px;
+}
+
+.content .card {
+  margin-bottom: 30px;
+}
+
+.content .img-container {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.content .play-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate3D(-50%, -50%, 0) scale(.55);
+  transition: all .4s ease;
+  z-index: 1;
+}
+
+.content .play-icon::after {
+  content: '▶';
+  position: relative;
+  top: 2px;
+  left: 4px;
+  font-size: 32px;
+  color: rgba(255, 255, 255, .2);
+}
+
+.content .img-container:hover .play-icon {
+  opacity: 1;
+  transform: translate3D(-50%, -50%, 0) scale(1);
+}
+
+.content .card-img-top {
+  transition: transform .4s ease,
+              filter .4s ease;
+}
+
+.content .img-container:hover .card-img-top {
+  transform: scale(1.1);
+  filter: brightness(.9);
+}
+
+#player-modal .modal-content {
+  background-color: #111;
+}
+
+#player-modal .modal-header {
+  color: #fff;
+  background-color: #111;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+#player-modal .close > span {
+  text-shadow: 0 1px 0 #555;
+}
+
+#player-modal .modal-body {
+  padding: 0;
+}
+
+#player-modal .modal-footer {
+  color: #fff;
+  background-color: #111;
+  border-top: 1px solid #1a1a1a;
+}
