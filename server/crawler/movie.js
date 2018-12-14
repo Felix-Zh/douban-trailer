@@ -15,13 +15,13 @@ async function main() {
   await page.goto(url, { waitUntil: 'networkidle2' });
   console.log('页面加载完成...');
   await sleep(1000);
-  await loadMore(page, 5);
+  await loadMore(page, 1);
 
-  const data = await collectData(page);
-
-  console.log('data');
+  const result = await collectData(page);
 
   await browser.close();
+
+  process.send(result.slice(0, 3));
 }
 
 async function loadMore(page, times) {
@@ -61,7 +61,7 @@ async function loadMore(page, times) {
     statusText = `第 ${idx} 次加载完成，新增 ${newLength} 个条目。`;
 
     if (await page.$('.more')) {
-      const delay = getRandomInt(2000, 5000);
+      const delay = getRandomInt(100, 500);
       const hasMoreLoop = i !== times - 1;
 
       console.log(`${statusText}${hasMoreLoop ? `下次加载将在 ${delay}ms 后进行...` : ''}`);
