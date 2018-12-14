@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import useMiddlewares from './middlewares';
-import { port } from '../config';
+import { SERVER_PORT } from './config';
 
 
 const app = new Koa();
@@ -11,6 +11,6 @@ app.use(async (ctx, next) => {
   ctx.render('index', { userName: 'Felix' });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at port ${port}...`);
+app.listen(SERVER_PORT, () => {
+  console.log(`Server is running at port ${SERVER_PORT}...`);
 });
