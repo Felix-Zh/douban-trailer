@@ -61,8 +61,11 @@ class MainTask {
       // 流派
       console.log('正在更新流派...');
       if (item.genres && item.genres.length) {
-        for (let genresInstance of item.genres) {
-          genresInstances.push(await this.getGenresInstance(genresInstance));
+        for (let genresName of item.genres) {
+          const genresInstance = await this.getGenresInstanceByName(genresName);
+
+          movieInstance.genres.push(genresInstance._id);
+          genresInstances.push(genresInstance);
         }
 
         genresInstances.forEach(genres => {
@@ -113,7 +116,7 @@ class MainTask {
     return schema;
   }
 
-  async getGenresInstance(genresName) {
+  async getGenresInstanceByName(genresName) {
     const genres = await Genres.findOne({ name: genresName });
 
     if (genres) {

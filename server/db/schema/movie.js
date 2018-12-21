@@ -9,9 +9,9 @@ const movieSchema = new Schema({
     type: String,
     unique: true
   },
-  category: [{
+  genres: [{
     type: ObjectId,
-    ref: 'Category'
+    ref: 'Genres'
   }],
   rate: Number,
   title: String,
@@ -23,7 +23,6 @@ const movieSchema = new Schema({
   videoCoverURLKey: String,
   posterURLKey: String,
   rawTitle: String,
-  movieTypes: [String],
   year: Number,
   hasDetail: {
     type: Boolean,
