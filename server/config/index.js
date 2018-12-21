@@ -6,3 +6,9 @@ export const QINIU_CONFIG = {
   AK: 'XgUg4FArKJqtLpIrjAHDAujKMHLcM7XUzusaaqms',
   SK: '1uYMZzFJi0hIqpvZDfo_QE2SiVsjYmjyvTBydjxG'
 };
+
+export const LOGIN = {
+  PASSWORD_SALT_ROUNDS: 20,
+  MAX_LOGIN_ATTEMPTS: 5,
+  LOCK_TIME: 2 * 60 * 60 * 1000
+};
