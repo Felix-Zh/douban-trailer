@@ -6,7 +6,7 @@ import { sleep, getRandomInt } from '../utils';
 const url = 'https://movie.douban.com/tag/#/?sort=U&range=8,10&tags=电影,2010年代';
 const itemSelector = '.list-wp .item';
 
-async function main() {
+async function main(pageCount) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -15,13 +15,12 @@ async function main() {
   await page.goto(url, { waitUntil: 'networkidle2' });
   console.log('页面加载完成...');
   await sleep(1000);
-  await loadMore(page, 1);
+  await loadMore(page, pageCount);
 
   const result = await collectData(page);
 
   await browser.close();
-
-  process.send(result.slice(0, 3));
+  process.send(result);
 }
 
 async function loadMore(page, times) {
@@ -96,4 +95,4 @@ async function collectData(page) {
   }, itemSelector);
 }
 
-main();
+main(process.argv[2]);

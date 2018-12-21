@@ -6,7 +6,7 @@ import { sleep } from '../utils';
 const url = 'https://movie.douban.com/subject/<%= id %>';
 
 export default async function main(id) {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const targetURL = template(url)({ id });
 
@@ -45,3 +45,5 @@ export default async function main(id) {
 
   process.send({ id, cover, src });
 }
+
+main(process.argv[2]);

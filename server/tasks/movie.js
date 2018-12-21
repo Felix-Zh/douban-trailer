@@ -4,9 +4,9 @@ import cp from 'child_process';
 
 const movieCrawlerPath = path.resolve(__dirname, '../crawler/movie');
 
-export default function movieListTask () {
+export default function movieTask(pageCount) {
   return new Promise((resolve, reject) => {
-    const movieCrawler = cp.fork(movieCrawlerPath, []);
+    const movieCrawler = cp.fork(movieCrawlerPath, [pageCount]);
     let invoked = false;
     
     movieCrawler

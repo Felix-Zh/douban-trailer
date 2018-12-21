@@ -4,9 +4,9 @@ import cp from 'child_process';
 
 const trailerCrawlerPath = path.resolve(__dirname, '../crawler/trailer');
 
-export default function trailerTask () {
+export default function trailerTask (doubanId) {
   return new Promise((resolve, reject) => {
-    const trailerCrawler = cp.fork(trailerCrawlerPath, []);
+    const trailerCrawler = cp.fork(trailerCrawlerPath, [doubanId]);
     let invoked = false;
     
     trailerCrawler
