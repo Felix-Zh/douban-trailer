@@ -16,7 +16,7 @@ class MainTask {
   }
 
   async saveMoviesToDB() {
-    const data = await movieTask(2);
+    const data = await movieTask(5);
     let newItems = 0;
     let skipItems = 0;
 
