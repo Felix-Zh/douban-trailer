@@ -2,6 +2,7 @@ import path from 'path';
 
 import logger from 'koa-logger';
 import render from './render';
+import Router from '../libs/router';
 
 
 export default app => {
@@ -14,5 +15,11 @@ export default app => {
     path.resolve(__dirname, '../views'),
     { ext: 'pug' }
   ));
+
+  // router
+  new Router(
+    app,
+    path.resolve(__dirname, '../routes')
+  ).init();
 
 };
