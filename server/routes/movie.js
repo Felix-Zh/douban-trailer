@@ -1,31 +1,30 @@
-import mongoose from 'mongoose';
 import { methods, controller } from '../libs/router';
+import { getAllMovies, getMovie, getRecommendMoviesOfMovie } from '../services/movie';
 
 
-const { get, post } = methods;
+const { get } = methods;
 
 @controller('/movie')
-class MovieRoute {
+class MovieController {
 
   @get('/')
   async getAllMovies(ctx, next) {
-    const Movie = mongoose.model('Movie');
-    const res = await Movie.find({}).sort({ 'meta.createTime': -1 });
+    const { genres, year } = ctx.query;
+    const res = await getAllMovies(genres, year);
 
-    ctx.body = res;
+    await ctx.assertApi(res, 0);
     await next();
   }
 
   @get('/:id')
   async getMovie(ctx, next) {
-    const Movie = mongoose.model('Movie');
-    const doubanId = ctx.params.id;
-    const res = await Movie.findOne({ doubanId });
+    const movie = await getMovie(ctx.params.id);
+    const recommendMovies = await getRecommendMoviesOfMovie(movie);
 
-    ctx.body = res;
+    await ctx.assertApi({ movie, recommendMovies }, 0);
     await next();
   }
 
 }
 
-new MovieRoute();
+new MovieController();

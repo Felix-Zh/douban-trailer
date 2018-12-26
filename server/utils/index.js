@@ -7,7 +7,7 @@ export async function sleep(duration) {
 }
 
 /**
- * get random integer in specific range
+ * Get random integer in specific range
  * @param {Number} min min
  * @param {Number} max max
  */
