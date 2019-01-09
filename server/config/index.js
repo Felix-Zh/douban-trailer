@@ -1,3 +1,5 @@
+export const env = process.env.NODE_ENV === 'production' ? 'prod' : 'dev';
+
 export const SERVER_PORT = 9999;
 
 export const QINIU_CONFIG = {
@@ -12,3 +14,5 @@ export const LOGIN = {
   MAX_LOGIN_ATTEMPTS: 5,
   LOCK_TIME: 2 * 60 * 60 * 1000
 };
+
+export * from '../../config';

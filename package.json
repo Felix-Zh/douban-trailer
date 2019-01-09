@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon -w server --exec \"npx babel-node server\"",
+    "start": "rm -rf dist && rm -rf .cache && NODE_ENV=development && nodemon --exec \"npx babel-node server\"",
     "collect": "babel-node server/tasks/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,7 +31,9 @@
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",
+    "koa-proxy": "^0.9.0",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "lodash": "^4.17.11",
     "mime": "^2.4.0",
     "mongoose": "^5.4.0",
@@ -46,6 +48,7 @@
     "@babel/core": "^7.2.0",
     "@babel/node": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.2.0"
+    "@babel/preset-env": "^7.2.0",
+    "parcel-bundler": "^1.11.0"
   }
 }

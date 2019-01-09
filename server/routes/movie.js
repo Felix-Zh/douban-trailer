@@ -4,7 +4,7 @@ import { getAllMovies, getMovie, getRecommendMoviesOfMovie } from '../services/m
 
 const { get } = methods;
 
-@controller('/movie')
+@controller('/api/movie')
 class MovieController {
 
   @get('/')

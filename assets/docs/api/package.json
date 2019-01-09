@@ -1,0 +1,18 @@
+{
+  "name": "douban-trailer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "aglio -i api.apib -o api.html",
+    "mock": "drakov -f api.apib --watch -p 10000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aglio": "^2.3.0",
+    "drakov": "^1.0.4"
+  }
+}

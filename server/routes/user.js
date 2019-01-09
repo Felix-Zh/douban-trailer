@@ -4,7 +4,7 @@ import { checkPassword } from '../services/user';
 
 const { post } = methods;
 
-@controller('/user')
+@controller('/api/user')
 class UserController {
 
   @post('/login')
