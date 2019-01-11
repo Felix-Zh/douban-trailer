@@ -1,7 +1,8 @@
 import React from 'react';
 import Dplayer from 'dplayer';
-import { withData } from '../../components/HOCs/DataHOC';
 import { Rate, Spin, message } from 'antd';
+import { withData } from '../../components/HOCs/DataHOC';
+import Layout from '../../components/common/Layout';
 import { Link } from 'react-router-dom';
 import RelationMovieItem from '../../components/Detail/RelationMovieItem';
 import { CDN_HOST } from '../../constants';
@@ -76,49 +77,51 @@ class Detail extends React.Component {
     const { movie } = state;
 
     return (
-      <Spin spinning={state.loading}>
-        <div className={styles.container}>
-          <div className={styles['video-container']} ref={this.videoContainer} />
-          <div className={styles.meta}>
-            <div className={styles['meta-top']}>
-              <div className={styles.title}>
-                <h1>{movie.title}</h1>
-                <span className={styles['raw-title']}>{movie.rawTitle}</span>
+        <Layout>
+          <Spin spinning={state.loading}>
+            <div className={styles.container}>
+              <div className={styles['video-container']} ref={this.videoContainer} />
+              <div className={styles.meta}>
+                <div className={styles['meta-top']}>
+                  <div className={styles.title}>
+                    <h1>{movie.title}</h1>
+                    <span className={styles['raw-title']}>{movie.rawTitle}</span>
+                  </div>
+                  <div className={styles['rate-container']}>
+                    <Rate
+                      className={styles.rate}
+                      disabled
+                      allowHalf
+                      value={movie.rate / 2}
+                    />
+                    <span>{formatRate(movie.rate)}</span>
+                  </div>
+                </div>
+                <div className={styles.genres}>
+                  剧情 / 社会
+                </div>
               </div>
-              <div className={styles['rate-container']}>
-                <Rate
-                  className={styles.rate}
-                  disabled
-                  allowHalf
-                  value={movie.rate / 2}
-                />
-                <span>{formatRate(movie.rate)}</span>
+              <div className={styles.description}>{movie.description}</div>
+              <div>
+                <h3>相关推荐</h3>
+                <div className={styles['relation-wrapper']}>
+                  <div className={styles['relation-scroller']}>
+                    {
+                      state.recommendMovies.map(movie => (
+                        <Link to={`/movie/${movie._id}`} key={movie.doubanId} className={styles.link}>
+                          <RelationMovieItem
+                            className={styles['relation-movie-item']}
+                            data={movie}
+                          />
+                        </Link>
+                      ))
+                    }
+                  </div>
+                </div>
               </div>
             </div>
-            <div className={styles.genres}>
-              剧情 / 社会
-            </div>
-          </div>
-          <div className={styles.description}>{movie.description}</div>
-          <div>
-            <h3>相关推荐</h3>
-            <div className={styles['relation-wrapper']}>
-              <div className={styles['relation-scroller']}>
-                {
-                  state.recommendMovies.map(movie => (
-                    <Link to={`/movie/${movie._id}`} key={movie.doubanId} className={styles.link}>
-                      <RelationMovieItem
-                        className={styles['relation-movie-item']}
-                        data={movie}
-                      />
-                    </Link>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-      </Spin>
+          </Spin>
+        </Layout>
     );
   }
 }

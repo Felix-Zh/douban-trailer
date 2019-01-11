@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layout, Affix, Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
-import { withData } from './components/HOCs/DataHOC';
+import { withData } from '../../HOCs/DataHOC';
 import { withRouter } from 'react-router-dom';
-import styles from './app.scss';
+import styles from './layout.scss';
 
 
 const { SubMenu } = Menu;

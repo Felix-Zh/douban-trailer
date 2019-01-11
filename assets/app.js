@@ -41,9 +41,7 @@ export default class App extends React.Component {
   render() {
     return (
       <DataContext.Provider value={this.getData()}>
-        <Layout>
-          <Routes />
-        </Layout>
+        <Routes />
       </DataContext.Provider>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pagination, Empty, Affix, BackTop, message } from 'antd';
 import { withData } from '../../components/HOCs/DataHOC';
+import Layout from '../../components/common/Layout';
 import MovieItem from '../../components/Index/MovieItem/';
 import PreviewModal from '../../components/Index/PreviewModal/';
 import TrailerModal from '../../components/Index/TrailerModal/';
@@ -138,7 +139,7 @@ class Index extends React.Component {
     const { pagination } = state;
 
     return (
-      <React.Fragment>
+      <Layout>
         <div className={styles.container}>
           {
             state.movieList.length ?
@@ -182,7 +183,7 @@ class Index extends React.Component {
           data={state.currTrailerMovie}
         />
         <BackTop ref={this.backTop} />
-      </React.Fragment>
+      </Layout>
     );
   }
 }
