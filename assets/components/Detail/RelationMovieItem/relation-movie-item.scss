@@ -1,0 +1,35 @@
+@import '../../../styles/mixins.scss';
+
+
+.wrapper {
+  display: inline-block;
+  width: 130px;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.poster-container {
+  margin: 0 auto 5px;
+  max-width: 100%;
+  max-height: 175px;
+  overflow: hidden;
+}
+
+.poster {
+  display: block;
+  width: 100%;
+}
+
+.title {
+  @include single-line-ellipsis; 
+  text-align: center;
+}
+
+.rate {
+  text-align: center;
+  font-size: 12px;
+  color: #f90;
+}

@@ -3,7 +3,6 @@ import { Spin, message } from 'antd';
 import Routes from './routes';
 import Layout from './layout';
 import { DataContext } from './components/HOCs/DataHOC';
-import styles from './app.scss';
 import './styles/common.scss';
 import 'antd/dist/antd.css';
 
@@ -40,14 +39,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return (
-        <div className={styles.loading}>
-          <Spin size="large" />
-        </div>
-      );
-    }
-
     return (
       <DataContext.Provider value={this.getData()}>
         <Layout>

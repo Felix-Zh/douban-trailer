@@ -22,3 +22,11 @@ export function getRandomInt(min, max) {
 
   return Math.floor(min + Math.random() * (max - min + 1));
 }
+
+/**
+ * 是否是 Promise 对象
+ * @param {Object} obj 
+ */
+export function isPromise(obj) {
+  return obj && obj.then && typeof obj.then === 'function';
+}

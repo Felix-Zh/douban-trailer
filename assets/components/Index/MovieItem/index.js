@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Icon } from 'antd';
+import ImageFade from '../../common/ImageFade';
 import { CDN_HOST } from '../../../constants';
 import styles from './movie-item.scss';
 
@@ -46,8 +47,8 @@ export default props => {
         cover={<Cover src={`${CDN_HOST}/${data.posterURLKey}`} alt="电影标题" onClick={onPlay} />}
         actions={[
           <Icon type="caret-right" onClick={onPlay} />,
-          <Icon type="eye" onClick={() => props.onViewDetail(data.doubanId)} />,
-          <Icon type="star" onClick={() => props.onFavorite(data.doubanId)} />,
+          <Icon type="eye" onClick={() => props.onViewDetail(data._id)} />,
+          <Icon type="star" onClick={() => props.onFavorite(data._id)} />,
         ]}
       >
         <Meta
@@ -63,6 +64,6 @@ export default props => {
 const Cover = ({ src, alt, onClick }) => (
   <div onClick={onClick} className={styles['cover-container']}>
     <Icon type="play-circle" theme="filled" className={styles['play-icon']} />
-    <img className={styles['cover-image']} alt={alt} src={src} />
+    <ImageFade className={styles['cover-image']} src={src} alt={alt} />
   </div>
 );

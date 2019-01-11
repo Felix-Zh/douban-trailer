@@ -16,11 +16,13 @@
     "@babel/runtime": "^7.2.0",
     "antd": "^3.12.1",
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "dplayer": "^1.25.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

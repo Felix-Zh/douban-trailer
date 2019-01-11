@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout, Affix, Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import { withData } from './components/HOCs/DataHOC';
+import { withRouter } from 'react-router-dom';
 import styles from './app.scss';
 
 
@@ -9,6 +10,12 @@ const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 class AppLayout extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.getDefaultSelectedKeys = this.getDefaultSelectedKeys.bind(this);
+  }
+
   getYearsMenuItems() {
     const currYear = new Date().getFullYear();
     const currDecade = Math.floor(currYear / 10) * 10;
@@ -44,6 +51,19 @@ class AppLayout extends React.Component {
     ));
   }
 
+  getDefaultSelectedKeys() {
+    const path = this.props.location.pathname;
+    let res;
+
+    if (path === '/') {
+      res = 'recommend';
+    } else {
+      res = path;
+    }
+
+    return [res];
+  }
+
   render() {
     return (
       <Layout>
@@ -57,7 +77,7 @@ class AppLayout extends React.Component {
             <Menu
               mode="inline"
               theme="dark"
-              defaultSelectedKeys={['recommend']}
+              defaultSelectedKeys={this.getDefaultSelectedKeys()}
               style={{ height: '100%', borderRight: 0 }}
             >
               <Menu.Item key="recommend">
@@ -78,7 +98,7 @@ class AppLayout extends React.Component {
             </Menu>
           </Sider>
           <Layout style={{ padding: '24px 24px 0 24px' }}>
-            <Content style={{ background: '#fff', padding: '24px 12px', margin: 0 }}>
+            <Content style={{ background: '#fff', margin: 0 }}>
               {this.props.children}
             </Content>
           </Layout>
@@ -88,4 +108,4 @@ class AppLayout extends React.Component {
   }
 }
 
-export default withData(AppLayout);
+export default withRouter(withData(AppLayout));

@@ -1,0 +1,81 @@
+.container {
+  padding: 24px;
+}
+
+.video-container {
+  height: 600px;
+  background-color: #eee;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.meta-top  {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+
+  > h1 {
+    margin: 0;
+  }
+}
+
+.raw-title {
+  padding-left: 10px;
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+.rate-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  color: #f90;
+  font-size: 12px;
+}
+
+.rate {
+  padding: 0 4px 2px 0 !important;
+
+  &:global(.ant-rate) {
+    font-size: 12px;
+  }
+
+  :global(.ant-rate-star) {
+    margin-right: 2px;
+  }
+
+}
+
+.genres {
+  font-size: 14px;
+}
+
+.description {
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+
+.relation-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.relation-movie-item {
+  display: inline-block;
+  margin: 0 20px 20px 0;
+}
+
+.link {
+  color: #444;
+}

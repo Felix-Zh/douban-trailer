@@ -30,7 +30,7 @@ export default app => {
   // router
   new Router(
     app,
-    path.resolve(__dirname, '../routes')
+    path.resolve(__dirname, '../controllers')
   ).init();
 
   // proxy
